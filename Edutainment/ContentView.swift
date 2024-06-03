@@ -14,8 +14,6 @@ struct ContentView: View {
     @State private var numberFrom = Array(2...12)
     @State private var numberTo = Array(2...12)
     
-    @State private var correct = false
-    
     @State private var answer: Int?
     
     var body: some View {
@@ -41,31 +39,23 @@ struct ContentView: View {
             .frame(height: 160)
             .pickerStyle(.wheel)
             
-            let range = numberSelectionFrom...numberSelectionTo
-            let randomElementFrom = range.randomElement()
-            let randomElementTo = range.randomElement()
-            
-            Text("\(randomElementFrom ?? 0) x \(randomElementTo ?? 0) = ?")
-            
-//            TextField("Answer", value: $answer)
-            
-            TextField("Answer", value: $answer, formatter: NumberFormatter())
-                .multilineTextAlignment(.center)
-            
-//            if answer == calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0) {
-//                Text("Yayy")
-//                    .foregroundStyle(.green)
-//            } else {
-//                Text("Ayy 🥺")
-//                    .foregroundStyle(.red)
-//            }
-            
+//            let range = numberSelectionFrom...numberSelectionTo
+//            let randomElementFrom = range.randomElement()
+//            let randomElementTo = range.randomElement()
 //            let correctAnswer = calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0)
-//                            Text("Yayyy!")
-//                                .foregroundColor(.green)
-            
-            Text("\(calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0))")
-
+//            
+//            TextField("Answer", value: $answer, formatter: NumberFormatter())
+//                .multilineTextAlignment(.center)
+//            
+//            Text("\(checkTheAnswer(from: randomElementFrom ?? 0, to: randomElementTo ?? 0))")
+//            
+//            if checkTheAnswer(from: randomElementFrom ?? 0, to: randomElementTo ?? 0)
+//            
+//            VStack {
+//                Text("The correct answer is:")
+//                Text("\(calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0))")
+//            }
+//            .foregroundStyle(.green)
         }
         .padding()
         .fontDesign(.rounded)
@@ -75,26 +65,29 @@ struct ContentView: View {
     
     func calculator(from: Int, to: Int) -> Int { from * to }
     
-//    func checkAnswer() -> String {
+//    func checkTheAnswer(from: Int, to: Int) -> String {
+//        let correctAnswer = calculator(from: from, to: to)
 //        
-//        let range = numberSelectionFrom...numberSelectionTo
-//        let randomElementFrom = range.randomElement()
-//        let randomElementTo = range.randomElement()
-//        
-//        var answerString = ""
-//        
-//        if answer == calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0) {
-//            answerString = "Yayyy"
+//        if correctAnswer == answer {
+//            return "Yayyy"
 //        } else {
-//            answerString = "Ayayayayyy"
+//            return "Ayayyy"
 //        }
 //        
-//        return answerString
 //    }
     
-//    func checkAnser() {
-//        return answer == calculator(from: <#T##Int#>, to: <#T##Int#>)
+//    func checkTheAnswer(from: Int, to: Int) {
+//        let correctAnswer = calculator(from: from, to: to)
+//        
+//        if correctAnswer == answer {
+//            
+//        }
 //    }
+    
+    func checkTheAnswer() {
+        
+    }
+    
 }
 
 #Preview {
