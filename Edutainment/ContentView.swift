@@ -39,23 +39,9 @@ struct ContentView: View {
             .frame(height: 160)
             .pickerStyle(.wheel)
             
-//            let range = numberSelectionFrom...numberSelectionTo
-//            let randomElementFrom = range.randomElement()
-//            let randomElementTo = range.randomElement()
-//            let correctAnswer = calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0)
-//            
-//            TextField("Answer", value: $answer, formatter: NumberFormatter())
-//                .multilineTextAlignment(.center)
-//            
-//            Text("\(checkTheAnswer(from: randomElementFrom ?? 0, to: randomElementTo ?? 0))")
-//            
-//            if checkTheAnswer(from: randomElementFrom ?? 0, to: randomElementTo ?? 0)
-//            
-//            VStack {
-//                Text("The correct answer is:")
-//                Text("\(calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0))")
-//            }
-//            .foregroundStyle(.green)
+            TextField("Answer", value: $answer, formatter: NumberFormatter())
+                .multilineTextAlignment(.center)
+            
         }
         .padding()
         .fontDesign(.rounded)
@@ -65,27 +51,18 @@ struct ContentView: View {
     
     func calculator(from: Int, to: Int) -> Int { from * to }
     
-//    func checkTheAnswer(from: Int, to: Int) -> String {
-//        let correctAnswer = calculator(from: from, to: to)
-//        
-//        if correctAnswer == answer {
-//            return "Yayyy"
-//        } else {
-//            return "Ayayyy"
-//        }
-//        
-//    }
     
-//    func checkTheAnswer(from: Int, to: Int) {
-//        let correctAnswer = calculator(from: from, to: to)
-//        
-//        if correctAnswer == answer {
-//            
-//        }
-//    }
-    
-    func checkTheAnswer() {
+    func dontknowyet() {
+        let range = numberSelectionFrom...numberSelectionTo
+        let randomElementFrom = range.randomElement()
+        let randomElementTo = range.randomElement()
+        let correctAnswer = calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0)
         
+        if correctAnswer == answer { }
+    }
+    
+    func something() {
+    
     }
     
 }
