@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var numberSelectionFrom = 4
-    @State private var numberSelectionTo = 8
+    @State private var numberSelectionFrom = 2
+    @State private var numberSelectionTo = 12
     @State private var numberFrom = Array(2...12)
     @State private var numberTo = Array(2...12)
     
-    @State private var answer = 0
+    @State private var answer = ""
     @State private var randomElementFrom = 0
     @State private var randomElementTo = 0
     @State private var correctAnswer = 0
@@ -49,24 +49,26 @@ struct ContentView: View {
                 .frame(height: 160)
                 .pickerStyle(.wheel)
                 
-                
                 Text("\(randomElementFrom) x \(randomElementTo) = ?")
                 
-                TextField("Answer", value: $answer, formatter: NumberFormatter())
+                TextField("Answer", text: $answer)
+                    .font(.system(size: 40))
                     .multilineTextAlignment(.center)
                     .keyboardType(.numberPad)
-                    .onSubmit {
-                        showingResult.toggle()
-                    }
+                    .onSubmit { showingResult.toggle() }
+                    .padding()
+                
+                Button {
+                    showingResult.toggle()
+                } label: {
+                    Text("Submit")
+                }
             }
-            .padding()
-            .fontDesign(.rounded)
-            .font(.title2)
-            .fontWeight(.black)
             .onAppear(perform: generateQuestion)
+            .onChange(of: numberSelectionFrom | numberSelectionTo) { generateQuestion() }
             .sheet(isPresented: $showingResult) {
                 VStack {
-                    if answer == correctAnswer {
+                    if Int(answer) == correctAnswer {
                         VStack {
                             Button {
                                 generateQuestion()
@@ -87,18 +89,29 @@ struct ContentView: View {
                     } else {
                         VStack {
                             WrongView()
-                            Button(action: generateQuestion) {
-                                Text("Next Question")
-                                    .font(.headline)
+                            HStack {
+                                Button {
+                                    showingResult = false
+                                    answer = ""
+                                } label: {
+                                    Text("Try Again")
+                                }
+                                .tint(.green)
+                                Spacer()
+                                Button(action: generateQuestion) {
+                                    Text("Next Question")
+                                }
+                                .tint(.red)
                             }
                             .buttonStyle(.bordered)
-                            .tint(.red)
+                            .font(.headline)
+                            .padding(.horizontal, 32)
                         }
                     }
                 }
                 .presentationDetents([.height(140)])
-                .fontDesign(.rounded)
             }
+            .modifier(FontModifier())
         }
     }
     
@@ -107,12 +120,12 @@ struct ContentView: View {
         randomElementFrom = range.randomElement() ?? numberSelectionFrom
         randomElementTo = range.randomElement() ?? numberSelectionTo
         correctAnswer = calculator(from: randomElementFrom, to: randomElementTo)
-        answer = 0
+        answer = ""
         showingResult = false
     }
     
     func checkAnswer() {
-        if answer == correctAnswer {
+        if Int(answer) == correctAnswer {
             isCorrect = true
         } else {
             isCorrect = false
@@ -125,3 +138,13 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+struct FontModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .fontDesign(.rounded)
+            .fontWeight(.heavy)
+            .font(.title2)
+    }
+}
+
