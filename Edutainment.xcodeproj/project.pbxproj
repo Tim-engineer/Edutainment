@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,7 +11,9 @@
 		D140C42C2C0DC2FA0092A944 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140C42B2C0DC2FA0092A944 /* ContentView.swift */; };
 		D140C42E2C0DC2FB0092A944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D140C42D2C0DC2FB0092A944 /* Assets.xcassets */; };
 		D140C4312C0DC2FB0092A944 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D140C4302C0DC2FB0092A944 /* Preview Assets.xcassets */; };
-		D140C4382C0E29440092A944 /* CorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140C4372C0E29440092A944 /* CorrectView.swift */; };
+		D140C4382C0E29440092A944 /* CorrectWrongSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140C4372C0E29440092A944 /* CorrectWrongSheetView.swift */; };
+		D140C43F2C0F07AA0092A944 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = D140C43E2C0F07AA0092A944 /* SplineRuntime */; };
+		D140C4432C0F0D870092A944 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D140C4422C0F0D870092A944 /* SF-Pro-Rounded-Black.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +22,8 @@
 		D140C42B2C0DC2FA0092A944 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D140C42D2C0DC2FB0092A944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D140C4302C0DC2FB0092A944 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D140C4372C0E29440092A944 /* CorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectView.swift; sourceTree = "<group>"; };
+		D140C4372C0E29440092A944 /* CorrectWrongSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectWrongSheetView.swift; sourceTree = "<group>"; };
+		D140C4422C0F0D870092A944 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Black.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D140C43F2C0F07AA0092A944 /* SplineRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +59,9 @@
 			children = (
 				D140C4292C0DC2FA0092A944 /* EdutainmentApp.swift */,
 				D140C42B2C0DC2FA0092A944 /* ContentView.swift */,
-				D140C4372C0E29440092A944 /* CorrectView.swift */,
+				D140C4372C0E29440092A944 /* CorrectWrongSheetView.swift */,
 				D140C42D2C0DC2FB0092A944 /* Assets.xcassets */,
+				D140C4422C0F0D870092A944 /* SF-Pro-Rounded-Black.otf */,
 				D140C42F2C0DC2FB0092A944 /* Preview Content */,
 			);
 			path = Edutainment;
@@ -86,6 +91,9 @@
 			dependencies = (
 			);
 			name = Edutainment;
+			packageProductDependencies = (
+				D140C43E2C0F07AA0092A944 /* SplineRuntime */,
+			);
 			productName = Edutainment;
 			productReference = D140C4262C0DC2FA0092A944 /* Edutainment.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +122,9 @@
 				Base,
 			);
 			mainGroup = D140C41D2C0DC2FA0092A944;
+			packageReferences = (
+				D140C43D2C0F07AA0092A944 /* XCLocalSwiftPackageReference "../../../../../Downloads/spline-ios-main" */,
+			);
 			productRefGroup = D140C4272C0DC2FA0092A944 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,6 +141,7 @@
 			files = (
 				D140C4312C0DC2FB0092A944 /* Preview Assets.xcassets in Resources */,
 				D140C42E2C0DC2FB0092A944 /* Assets.xcassets in Resources */,
+				D140C4432C0F0D870092A944 /* SF-Pro-Rounded-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +154,7 @@
 			files = (
 				D140C42C2C0DC2FA0092A944 /* ContentView.swift in Sources */,
 				D140C42A2C0DC2FA0092A944 /* EdutainmentApp.swift in Sources */,
-				D140C4382C0E29440092A944 /* CorrectView.swift in Sources */,
+				D140C4382C0E29440092A944 /* CorrectWrongSheetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +291,7 @@
 				DEVELOPMENT_TEAM = VFT9XV5A7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Edutainment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,6 +321,7 @@
 				DEVELOPMENT_TEAM = VFT9XV5A7N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Edutainment/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -348,6 +362,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D140C43D2C0F07AA0092A944 /* XCLocalSwiftPackageReference "../../../../../Downloads/spline-ios-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../../../Downloads/spline-ios-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D140C43E2C0F07AA0092A944 /* SplineRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SplineRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D140C41E2C0DC2FA0092A944 /* Project object */;
 }

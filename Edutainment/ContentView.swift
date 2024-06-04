@@ -112,6 +112,7 @@ struct ContentView: View {
                 .presentationDetents([.height(140)])
             }
             .modifier(FontModifier())
+            .navigationTitle("Training")
         }
     }
     
@@ -124,6 +125,10 @@ struct ContentView: View {
         showingResult = false
     }
     
+    func startGame() {
+        generateQuestion()
+    }
+    
     func checkAnswer() {
         if Int(answer) == correctAnswer {
             isCorrect = true
@@ -133,6 +138,13 @@ struct ContentView: View {
     }
     
     func calculator(from: Int, to: Int) -> Int { from * to }
+    
+    init() {
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "SF Pro Rounded", size: 40)!]
+        
+        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "SF Pro Rounded", size: 20)!]
+    }
+    
 }
 
 #Preview {
