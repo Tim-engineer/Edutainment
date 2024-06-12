@@ -11,9 +11,12 @@
 		D140C42C2C0DC2FA0092A944 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140C42B2C0DC2FA0092A944 /* ContentView.swift */; };
 		D140C42E2C0DC2FB0092A944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D140C42D2C0DC2FB0092A944 /* Assets.xcassets */; };
 		D140C4312C0DC2FB0092A944 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D140C4302C0DC2FB0092A944 /* Preview Assets.xcassets */; };
-		D140C4382C0E29440092A944 /* CorrectWrongSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D140C4372C0E29440092A944 /* CorrectWrongSheetView.swift */; };
-		D140C43F2C0F07AA0092A944 /* SplineRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = D140C43E2C0F07AA0092A944 /* SplineRuntime */; };
-		D140C4432C0F0D870092A944 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D140C4422C0F0D870092A944 /* SF-Pro-Rounded-Black.otf */; };
+		D143364F2C106E210078319C /* CorrectWrongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D143364E2C106E210078319C /* CorrectWrongView.swift */; };
+		D1BDF9272C0F17A5008A4402 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BDF9262C0F17A5008A4402 /* Model.swift */; };
+		D1BDF9292C0F4D94008A4402 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BDF9282C0F4D94008A4402 /* GameView.swift */; };
+		D1BDF92B2C0F4DC5008A4402 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BDF92A2C0F4DC5008A4402 /* SettingsView.swift */; };
+		D1BDF92D2C0F4FA6008A4402 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BDF92C2C0F4FA6008A4402 /* GameModel.swift */; };
+		D1BDF92F2C0F5567008A4402 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1BDF92E2C0F5567008A4402 /* SF-Pro-Rounded-Black.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +25,13 @@
 		D140C42B2C0DC2FA0092A944 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D140C42D2C0DC2FB0092A944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D140C4302C0DC2FB0092A944 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D140C4372C0E29440092A944 /* CorrectWrongSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectWrongSheetView.swift; sourceTree = "<group>"; };
-		D140C4422C0F0D870092A944 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-Pro-Rounded-Black.otf"; path = "../../../../../../../../Library/Fonts/SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
+		D143364E2C106E210078319C /* CorrectWrongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectWrongView.swift; sourceTree = "<group>"; };
+		D1BDF9262C0F17A5008A4402 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D1BDF9282C0F4D94008A4402 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		D1BDF92A2C0F4DC5008A4402 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D1BDF92C2C0F4FA6008A4402 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		D1BDF92E2C0F5567008A4402 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
+		D1BDF9302C0F55A3008A4402 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +65,16 @@
 		D140C4282C0DC2FA0092A944 /* Edutainment */ = {
 			isa = PBXGroup;
 			children = (
+				D1BDF9302C0F55A3008A4402 /* Info.plist */,
 				D140C4292C0DC2FA0092A944 /* EdutainmentApp.swift */,
 				D140C42B2C0DC2FA0092A944 /* ContentView.swift */,
-				D140C4372C0E29440092A944 /* CorrectWrongSheetView.swift */,
+				D143364E2C106E210078319C /* CorrectWrongView.swift */,
+				D1BDF9262C0F17A5008A4402 /* Model.swift */,
+				D1BDF9282C0F4D94008A4402 /* GameView.swift */,
+				D1BDF92A2C0F4DC5008A4402 /* SettingsView.swift */,
+				D1BDF92C2C0F4FA6008A4402 /* GameModel.swift */,
 				D140C42D2C0DC2FB0092A944 /* Assets.xcassets */,
-				D140C4422C0F0D870092A944 /* SF-Pro-Rounded-Black.otf */,
+				D1BDF92E2C0F5567008A4402 /* SF-Pro-Rounded-Black.otf */,
 				D140C42F2C0DC2FB0092A944 /* Preview Content */,
 			);
 			path = Edutainment;
@@ -141,7 +154,7 @@
 			files = (
 				D140C4312C0DC2FB0092A944 /* Preview Assets.xcassets in Resources */,
 				D140C42E2C0DC2FB0092A944 /* Assets.xcassets in Resources */,
-				D140C4432C0F0D870092A944 /* SF-Pro-Rounded-Black.otf in Resources */,
+				D1BDF92F2C0F5567008A4402 /* SF-Pro-Rounded-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,9 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BDF92B2C0F4DC5008A4402 /* SettingsView.swift in Sources */,
 				D140C42C2C0DC2FA0092A944 /* ContentView.swift in Sources */,
+				D1BDF9272C0F17A5008A4402 /* Model.swift in Sources */,
+				D1BDF9292C0F4D94008A4402 /* GameView.swift in Sources */,
 				D140C42A2C0DC2FA0092A944 /* EdutainmentApp.swift in Sources */,
-				D140C4382C0E29440092A944 /* CorrectWrongSheetView.swift in Sources */,
+				D143364F2C106E210078319C /* CorrectWrongView.swift in Sources */,
+				D1BDF92D2C0F4FA6008A4402 /* GameModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
