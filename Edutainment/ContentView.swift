@@ -31,6 +31,31 @@ struct ContentView: View {
                             }
                         }
                     }
+                    VStack {
+                        Text("To")
+                        Picker("To", selection: $numberSelectionTo) {
+                            ForEach(numberTo, id: \.self) {
+                                Text("\($0)")
+                            }
+                        }
+                    }
+                }
+                .frame(height: 160)
+                .pickerStyle(.wheel)
+                
+                Text("\(randomElementFrom) x \(randomElementTo) = ?")
+                
+                TextField("Answer", text: $answer)
+                    .font(.system(size: 40))
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                    .onSubmit { showingResult.toggle() }
+                    .padding()
+                
+                Button {
+                    showingResult.toggle()
+                } label: {
+                    Text("Submit")
                 }
                 .frame(height: 160)
                 .pickerStyle(.wheel)

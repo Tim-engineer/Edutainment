@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D140C43F2C0F07AA0092A944 /* SplineRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +104,9 @@
 			dependencies = (
 			);
 			name = Edutainment;
+			packageProductDependencies = (
+				D140C43E2C0F07AA0092A944 /* SplineRuntime */,
+			);
 			productName = Edutainment;
 			productReference = D140C4262C0DC2FA0092A944 /* Edutainment.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +135,9 @@
 				Base,
 			);
 			mainGroup = D140C41D2C0DC2FA0092A944;
+			packageReferences = (
+				D140C43D2C0F07AA0092A944 /* XCLocalSwiftPackageReference "../../../../../Downloads/spline-ios-main" */,
+			);
 			productRefGroup = D140C4272C0DC2FA0092A944 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -372,6 +379,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D140C43D2C0F07AA0092A944 /* XCLocalSwiftPackageReference "../../../../../Downloads/spline-ios-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../../../Downloads/spline-ios-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D140C43E2C0F07AA0092A944 /* SplineRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SplineRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D140C41E2C0DC2FA0092A944 /* Project object */;
 }
