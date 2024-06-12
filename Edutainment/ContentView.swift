@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var model = GameModel()
     
     var body: some View {
-        NavigationStack(path: $model.path) {
+        NavigationStack {
             VStack {
                 HStack {
                     VStack {
