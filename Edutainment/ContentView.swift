@@ -9,94 +9,113 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var numberSelectionFrom = 4
-    @State private var numberSelectionTo = 8
-    @State private var numberFrom = Array(2...12)
-    @State private var numberTo = Array(2...12)
-    
-    @State private var correct = false
-    
-    @State private var answer: Int?
+    @State private var model = GameModel()
     
     var body: some View {
-        VStack {
-            HStack {
-                VStack {
-                    Text("From")
-                    Picker("From", selection: $numberSelectionFrom) {
-                        ForEach(numberFrom, id: \.self) {
-                            Text("\($0)")
+        NavigationStack(path: $model.path) {
+            VStack {
+                HStack {
+                    VStack {
+                        Text("From")
+                        Picker("From", selection: $model.numberSelectionFrom) {
+                            ForEach(model.numberFrom.filter { $0 <= model.numberSelectionTo}, id: \.self) {
+                                Text("\($0)")
+                            }
+                        }
+                    }
+                    VStack {
+                        Text("To")
+                        Picker("To", selection: $model.numberSelectionTo) {
+                            ForEach(model.numberTo.filter { $0 >= model.numberSelectionFrom}, id: \.self) {
+                                Text("\($0)")
+                            }
                         }
                     }
                 }
-                VStack {
-                    Text("To")
-                    Picker("From", selection: $numberSelectionTo) {
-                        ForEach(numberTo, id: \.self) {
-                            Text("\($0)")
-                        }
-                    }
+                .frame(height: 160)
+                .pickerStyle(.wheel)
+                
+                Text("\(model.randomElementFrom) x \(model.randomElementTo) = ?")
+                    .font(.title)
+                
+                TextField("Answer", text: $model.answer)
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numberPad)
+                    .font(.system(size: 44))
+                    .padding(.bottom)
+                
+                Button {
+                    checkAnswer()
+                    model.showingResult.toggle()
+                } label: {
+                    Text("Submit")
                 }
             }
-            .frame(height: 160)
-            .pickerStyle(.wheel)
-            
-            let range = numberSelectionFrom...numberSelectionTo
-            let randomElementFrom = range.randomElement()
-            let randomElementTo = range.randomElement()
-            
-            Text("\(randomElementFrom ?? 0) x \(randomElementTo ?? 0) = ?")
-            
-//            TextField("Answer", value: $answer)
-            
-            TextField("Answer", value: $answer, formatter: NumberFormatter())
-                .multilineTextAlignment(.center)
-            
-//            if answer == calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0) {
-//                Text("Yayy")
-//                    .foregroundStyle(.green)
-//            } else {
-//                Text("Ayy 🥺")
-//                    .foregroundStyle(.red)
-//            }
-            
-//            let correctAnswer = calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0)
-//                            Text("Yayyy!")
-//                                .foregroundColor(.green)
-            
-            Text("\(calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0))")
-
+            .padding()
+            .onAppear { generateQuestion() }
+            .onChange(of: model.numberSelectionFrom | model.numberSelectionTo) { generateQuestion() }
+            .onSubmit {
+                model.showingResult.toggle()
+                checkAnswer()
+            }
+            .sheet(isPresented: $model.showingResult) {
+                VStack {
+                    if model.isCorrect {
+                        CorrectView(generateQuestion: generateQuestion)
+                    } else {
+                        WrongView(tryAgain: { model.showingResult.toggle()
+                            model.answer = ""
+                        }, generateQuestion: generateQuestion)
+                    }
+                }
+                .presentationDetents([.height(180)])
+            }
+            .navigationTitle("Training")
+            .toolbar {
+                NavigationLink {
+                    SettingsView()
+                } label: {
+                    Image(systemName: "play.circle")
+                        .frame(width: 44, height: 44)
+                }
+            }
+            .modifier(FontModifier())
         }
-        .padding()
-        .fontDesign(.rounded)
-        .font(.title2)
-        .fontWeight(.black)
     }
     
     func calculator(from: Int, to: Int) -> Int { from * to }
     
-//    func checkAnswer() -> String {
-//        
-//        let range = numberSelectionFrom...numberSelectionTo
-//        let randomElementFrom = range.randomElement()
-//        let randomElementTo = range.randomElement()
-//        
-//        var answerString = ""
-//        
-//        if answer == calculator(from: randomElementFrom ?? 0, to: randomElementTo ?? 0) {
-//            answerString = "Yayyy"
-//        } else {
-//            answerString = "Ayayayayyy"
-//        }
-//        
-//        return answerString
-//    }
+    func generateQuestion() {
+        let range = model.numberSelectionFrom...model.numberSelectionTo
+        model.randomElementFrom = range.randomElement() ?? model.numberSelectionFrom
+        model.randomElementTo = range.randomElement() ?? model.numberSelectionTo
+        model.correctAnswer = calculator(from: model.randomElementFrom, to: model.randomElementTo)
+        model.answer = ""
+        model.showingResult = false
+    }
     
-//    func checkAnser() {
-//        return answer == calculator(from: <#T##Int#>, to: <#T##Int#>)
-//    }
+    func checkAnswer() {
+        if Int(model.answer) == model.correctAnswer {
+            model.isCorrect = true
+            } else {
+            model.isCorrect = false
+            }
+        }
+    
+    init() {
+            UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont(name: "SF Pro Rounded", size: 44)!]
+        }
 }
 
 #Preview {
     ContentView()
+}
+
+struct FontModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .fontDesign(.rounded)
+            .font(.title2)
+            .fontWeight(.black)
+    }
 }
